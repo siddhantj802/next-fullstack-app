@@ -42,8 +42,7 @@ function Navbar() {
       <div className={styles.links}>
         {links.map((link)=>(
             <Link href={link.url} key={link.id}>{link.title}</Link>
-          ))
-        }
+          ))}
         <button onClick={()=>(console.log('logged out'))}>Logout</button>
       </div>
     </div>
