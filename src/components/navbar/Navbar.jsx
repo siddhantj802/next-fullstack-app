@@ -41,9 +41,9 @@ function Navbar() {
       <div><Link href="/" className={styles.logo}>Lamamia</Link></div>
       <div className={styles.links}>
         {links.map((link)=>(
-            <Link href={link.url} key={link.id}>{link.title}</Link>
+            <Link href={link.url} key={link.id} className={styles.link}>{link.title}</Link>
           ))}
-        <button onClick={()=>(console.log('logged out'))}>Logout</button>
+        <button className={styles.logout} onClick={()=>(console.log('logged out'))}>Logout</button>
       </div>
     </div>
   )
