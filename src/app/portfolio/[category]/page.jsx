@@ -5,8 +5,8 @@ import Image from "next/image";
 import { items } from "./data.js";
 import { notFound } from "next/navigation";
 
-const getData = (cat) => {
-  const data = items[cat];
+const getData = async(cat) => {
+  const data = await items[cat];
 
   if (data) {
     return data;
@@ -15,11 +15,12 @@ const getData = (cat) => {
   return notFound();
 };
 
-const Category = ({ params }) => {
-  const data = getData(params.category);
+const Category = async ({ params }) => {
+  const {category} = await params
+  const data = await getData(category);
   return (
     <div className={styles.container}>
-      <h1 className={styles.catTitle}>{params.category}</h1>
+      <h1 className={styles.catTitle}>{category}</h1>
 
       {data.map((item) => (
         <div className={styles.item} key={item.id}>

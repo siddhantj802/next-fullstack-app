@@ -2,7 +2,7 @@
 const nextConfig = {
   devIndicators: false,
   images:{
-    domains: ["images.pexels.com" , "dummyimage.com"]
+    domains: ["images.pexels.com" , "fakestoreapi.com"]
   },
   reactCompiler: true,
   cacheComponents: true,
