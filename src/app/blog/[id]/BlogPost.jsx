@@ -4,41 +4,42 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const getData = async(id) =>{
-    'use cache'
-  const res = await fetch( `https://fakestoreapi.com/products/${id}`)
-
+    
+  const res = await fetch( `http://localhost:3000/api/posts/${id}`)
+  
   if(!res.ok){
      notFound()
   }
-
+  console.log(res.json)
   return res.json()
 }
 
 async function BlogPost({ params }) {
-  const { id } = await params;
+  const  {id}  = await params;
   const data = await getData(id);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.desc}>
-            {data.desciption}
+            {data.desc}
           </p>
           <div className={styles.author}>
-            {/* <Image
-              src={data.image}
+            <Image
+              src={data.img}
               alt=""
               width={40}
               height={40}
               className={styles.avatar}
-            /> */}
-            {/* <span className={styles.username}>{data.username}</span> */}
+            />
+            <span className={styles.username}>{data.username}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={data.image}
+            src={data.img}
             alt=""
             fill={true}
             className={styles.image}
