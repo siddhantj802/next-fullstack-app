@@ -1,22 +1,10 @@
 import React from 'react'
+import { cache } from 'react'
 import styles from "./page.module.css";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
-const getData = async(id) =>{
-    
-  const res = await fetch( `http://localhost:3000/api/posts/${id}`)
-  
-  if(!res.ok){
-     notFound()
-  }
-  console.log(res.json)
-  return res.json()
-}
+ async function BlogPost({ data }) {
 
-async function BlogPost({ params }) {
-  const  {id}  = await params;
-  const data = await getData(id);
 
   return (
     <div className={styles.container}>

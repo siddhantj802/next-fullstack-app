@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mamamia Blogs",
-  description: "Blog by Me",
+  title: "Mamamia Page",
+  description: "This is Blog Page",
 };
 
 export default function RootLayout({ children }) {
